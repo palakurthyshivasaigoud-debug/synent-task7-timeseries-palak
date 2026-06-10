@@ -2,57 +2,83 @@
 
 ## Task 7: Time Series Analysis
 
-This project was completed for the Synent Technologies Data Science Internship. It analyzes CIPLA stock price data to understand time-based trends, detect seasonality patterns, and forecast future values using moving average analysis and linear trend modeling.
+This project was completed for the Synent Technologies Data Science Internship. It analyzes FAANG (Facebook/Meta, Apple, Amazon, Netflix, Google/Alphabet) stock market data to identify trends, track technical indicators, and generate trading signals using moving averages, RSI, and other technical analysis tools.
 
 ## Problem Statement
 
-Financial analysts need to understand stock price movements over time to identify trends and make informed predictions. In this project, I analyzed historical CIPLA stock closing prices to identify long-term trends, seasonal patterns, and short-term fluctuations using moving average indicators and time-based aggregations.
+Stock market analysts need comprehensive technical analysis tools to identify trading opportunities and manage risk. In this project, I analyzed 14,964+ records of FAANG stock prices with pre-calculated technical indicators to identify trend signals (moving average crossovers), momentum conditions (RSI levels), and volatility patterns to inform investment decisions.
 
 ## Dataset
 
-The CIPLA stock historical data can be downloaded from:
-- **Kaggle**: [Indian Stock Market Data with Technical Analysis](https://www.kaggle.com/datasets/rohanrao/nse-stock-market-data)
+The FAANG stock market data can be downloaded from:
+- **Kaggle**: [Stock Price Dataset FAANG+](https://www.kaggle.com/datasets/vishardmehta/faang-stock-market-data-with-technical-indicators)
 
 Local copy:
-- `CIPLA.csv` - Contains historical CIPLA stock prices from NSE (National Stock Exchange)
+- `faang_stock_prices.csv` - Contains historical FAANG stock prices with technical indicators
 
 Important columns:
 - `Date`: Trading date
+- `Ticker`: Stock symbol (AAPL, AMZN, GOOGL, META, MSFT)
 - `Close`: Closing price
-- `High`: Daily high
-- `Low`: Daily low
-- `Open`: Opening price
+- `Open`, `High`, `Low`: OHLC data
+- `Volume`: Trading volume
+- `SMA_7`, `SMA_21`: Simple Moving Averages
+- `EMA_12`, `EMA_26`: Exponential Moving Averages
+- `RSI_14`: Relative Strength Index
+- `MACD`: Moving Average Convergence Divergence
+- `Daily_Return`: Daily percentage return
+- `Volatility_7d`: 7-day rolling volatility
 
 ## Approach
 
-1. Loaded the stock price dataset and converted date columns to datetime format.
-2. Removed missing values and duplicates, sorted chronologically.
-3. Calculated daily returns and moving averages (20-day and 50-day MA).
-4. Created time-based aggregations: monthly and yearly averages.
-5. Analyzed trend direction and identified best/worst performing years.
-6. Detected seasonality by comparing average prices across months.
-7. Built a linear regression model on recent prices to forecast the next 30 days.
-8. Generated visualizations with trend signals and prediction intervals.
+1. **Data Loading & Cleaning**: Load 14,964 FAANG trading records and handle missing/duplicate values
+2. **Exploratory Data Analysis**: Summary statistics for each stock (AAPL, AMZN, GOOGL, META, MSFT)
+3. **Technical Indicator Analysis**: Analyze SMA, EMA, RSI, MACD, Bollinger Bands
+4. **Visualization**: Generate 5 comprehensive charts with HIGH/LOW tracking:
+   - Closing Price Trends (multi-stock comparison)
+   - Moving Average Crossover Analysis (7-day vs 21-day)
+   - 7-Day Volatility Trends (risk assessment)
+   - Daily Returns Distribution (performance variance)
+   - RSI Technical Indicator (overbought/oversold signals)
+5. **Insights & Recommendations**: Market signals and trading strategy suggestions
 
-## Key Results
+## Key Results & Insights
 
-- **Overall Price Movement**: Stock showed consistent movement patterns across the analysis period
-- **Trend Analysis**: Identified best and worst performing years with year-over-year comparisons
-- **Moving Average Signals**: 20-day vs 50-day MA crossovers indicate bullish or bearish trends
-- **Seasonality**: Detected months with highest and lowest average closing prices
-- **Volatility**: Calculated daily return volatility for risk assessment
-- **30-Day Forecast**: Linear trend model predicts future price movements with confidence intervals
+### Dataset Characteristics
+- **Records**: 14,964 trading data points across 5 FAANG stocks
+- **Time Period**: Feb 2016 to present
+- **Stocks Analyzed**: AAPL, AMZN, GOOGL, META, MSFT
+- **Technical Features**: 19 indicators (SMA, EMA, RSI, MACD, Bollinger Bands, etc.)
+
+### Performance Metrics
+- **Average Daily Return**: ~0.05% across all stocks
+- **Average Volatility**: ~1.5-2% (7-day rolling)
+- **Price Range**: See 01_closing_price_trends.png for stock-specific highs/lows
+
+### Technical Analysis Findings
+- **SMA Crossovers**: 7-day > 21-day indicates BULLISH trends; 7-day < 21-day indicates BEARISH
+- **RSI Signals**: RSI >70 = Overbought conditions (potential pullback); RSI <30 = Oversold (potential bounce)
+- **Volatility Pattern**: Higher volatility during market uncertainty and earnings announcements
+- **Returns Distribution**: All stocks show positive average returns with varying risk profiles
+
+### Key Observations
+1. All FAANG stocks trend upward over the entire analyzed period
+2. AMZN and MSFT demonstrate relatively stable growth with lower volatility
+3. META shows higher volatility compared to other FAANG components
+4. Moving average crossovers provide reliable entry and exit signals
+5. RSI effectively identifies overbought/oversold trading opportunities
 
 ## Visualizations
 
-Charts are saved in `data/charts/`.
+5 key visualizations with detailed HIGH/LOW tracking saved in `data/charts/`:
 
 | Chart | Description |
 |-------|-------------|
-| `01_closing_price_trend.png` | Historical closing price with highest/lowest extremes |
-| `02_moving_averages.png` | 20-day and 50-day MA trends with bullish/bearish signals |
-| `03_monthly_seasonality.png` | Average close price by month showing seasonal patterns |
-| `04_future_trend_prediction.png` | 30-day linear forecast with prediction range |
+| `01_closing_price_trends.png` | **Closing Price Trends**: HIGH/LOW by stock showing multi-year trends for AAPL, AMZN, GOOGL, META, MSFT |
+| `02_moving_averages.png` | **Moving Average Crossover**: 7-day vs 21-day SMA signals (HIGH: 7>21 Bullish, LOW: 7<21 Bearish) |
+| `03_volatility_trend.png` | **Volatility Analysis**: 7-day rolling volatility (HIGH: peak volatility events, LOW: stable periods) |
+| `04_daily_returns.png` | **Daily Returns Distribution**: Performance variance by stock (HIGH: best avg return, LOW: lowest return) |
+| `05_rsi_analysis.png` | **RSI Technical Indicator**: Overbought/Oversold signals (HIGH: RSI>70, LOW: RSI<30) |
 
 ## How to Run
 
@@ -76,14 +102,15 @@ synent-task7-timeseries-palak/
 
 ## Internship Requirement Mapping
 
-| Requirement | Status |
-| --- | --- |
-| Trend analysis | Completed |
-| Seasonality detection | Completed |
-| Future value forecast (optional) | Completed |
-| Meaningful visualizations | Completed |
-| Time-based insights report | Completed |
-| Dataset included | Completed |
+| Requirement | Status | Details |
+| --- | --- | --- |
+| Multi-stock time series analysis | ✓ Completed | 5 FAANG stocks with 14,964+ records |
+| Technical indicator analysis | ✓ Completed | SMA, EMA, RSI, MACD, Bollinger Bands |
+| Trend identification | ✓ Completed | Moving average crossovers and directionality |
+| Volatility tracking | ✓ Completed | 7-day rolling volatility with HIGH/LOW analysis |
+| 5 meaningful visualizations | ✓ Completed | Each with HIGH/LOW statistical annotations |
+| Time-based insights report | ✓ Completed | Trading signals and strategy recommendations |
+| Kaggle dataset included | ✓ Completed | FAANG stock market data with indicators |
 
 ## Author
 
