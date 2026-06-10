@@ -226,7 +226,7 @@ fig, ax = plt.subplots(figsize=(12, 7))
 fig.suptitle("Daily Returns Distribution by Stock\nPositive median = consistent daily profit",
              fontsize=15, fontweight='bold')
 
-bp = ax.boxplot(returns_data, labels=tickers, patch_artist=True, widths=0.55,
+bp = ax.boxplot(returns_data, tick_labels=tickers, patch_artist=True, widths=0.55,
                 medianprops=dict(color='#e74c3c', linewidth=2.5),
                 whiskerprops=dict(linewidth=1.5, linestyle='--'),
                 capprops=dict(linewidth=2),
