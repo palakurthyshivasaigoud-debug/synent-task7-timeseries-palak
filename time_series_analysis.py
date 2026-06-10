@@ -2,7 +2,7 @@
 ============================================================
   SYNENT TECHNOLOGIES - DATA SCIENCE INTERNSHIP
   Task 7: Time Series Analysis
-  Name   : Palak
+  Name   : Palakurthy Shiva Sai Goud
   Dataset: Stock Price Dataset
 ============================================================
 
@@ -34,7 +34,7 @@ os.chdir(_BASE)
 #  CONFIGURATION - UPDATE THIS PATH TO YOUR DATASET
 # ============================================================
 
-DATA_PATH = os.path.join(_BASE, "CIPLA.csv")
+DATA_PATH = r"C:\Users\palak\Downloads\archive (12)\CIPLA.csv"
 
 # If your dataset uses different names, update these after sharing the file/path.
 DATE_COLUMN = "Date"

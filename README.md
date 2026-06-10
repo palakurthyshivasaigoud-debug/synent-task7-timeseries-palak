@@ -1,58 +1,56 @@
 # synent-task7-timeseries-palak
 
-## Task 7: CIPLA Stock Time Series Analysis
+## Task 7: Time Series Analysis
 
-This project was created for the Synent Technologies Data Science Internship. It studies historical stock price movement for CIPLA and explains trend, seasonality, volatility, and a simple future direction estimate.
+This project was completed for the Synent Technologies Data Science Internship. It analyzes CIPLA stock price data to understand time-based trends, detect seasonality patterns, and forecast future values using moving average analysis and linear trend modeling.
 
 ## Problem Statement
 
-Stock price data changes over time, so the analysis should preserve the date order and focus on movement patterns. In this task, I analyzed closing price behavior, moving averages, monthly patterns, and a simple 30-day linear forecast.
+Financial analysts need to understand stock price movements over time to identify trends and make informed predictions. In this project, I analyzed historical CIPLA stock closing prices to identify long-term trends, seasonal patterns, and short-term fluctuations using moving average indicators and time-based aggregations.
 
 ## Dataset
-
-Source: Kaggle / historical stock price data.
 
 Local file:
 
 ```text
-CIPLA.csv
+data/CIPLA.csv (or download from your data source)
 ```
 
-Main columns used:
+Important columns:
 
-| Column | Purpose |
-| --- | --- |
-| `Date` | Time index for the analysis |
-| `Close` | Price column used for trend and forecast |
+- `Date`: Trading date
+- `Close`: Closing price
 
 ## Approach
 
-1. Loaded the stock CSV file.
-2. Converted the date column to datetime format.
-3. Converted the closing price to numeric format.
-4. Removed invalid rows and duplicate records.
-5. Sorted the data by date.
-6. Calculated daily return, 20-day moving average, and 50-day moving average.
-7. Compared average closing prices by month for seasonality.
-8. Built a simple 30-day forecast using a linear trend on recent data.
+1. Loaded the stock price dataset and converted date columns to datetime format.
+2. Removed missing values and duplicates, sorted chronologically.
+3. Calculated daily returns and moving averages (20-day and 50-day MA).
+4. Created time-based aggregations: monthly and yearly averages.
+5. Analyzed trend direction and identified best/worst performing years.
+6. Detected seasonality by comparing average prices across months.
+7. Built a linear regression model on recent prices to forecast the next 30 days.
+8. Generated visualizations with trend signals and prediction intervals.
 
-## Key Insights
+## Key Results
 
-- The project reports start price, end price, overall movement, highest close, and lowest close.
-- Moving averages are used to compare short-term and longer-term price direction.
-- Monthly averages help identify repeated seasonal patterns.
-- The forecast is included only as an educational trend estimate, not financial advice.
+- **Overall Price Movement**: Stock showed consistent movement patterns across the analysis period
+- **Trend Analysis**: Identified best and worst performing years with year-over-year comparisons
+- **Moving Average Signals**: 20-day vs 50-day MA crossovers indicate bullish or bearish trends
+- **Seasonality**: Detected months with highest and lowest average closing prices
+- **Volatility**: Calculated daily return volatility for risk assessment
+- **30-Day Forecast**: Linear trend model predicts future price movements with confidence intervals
 
 ## Visualizations
 
 Charts are saved in `data/charts/`.
 
 | Chart | Description |
-| --- | --- |
-| `01_closing_price_trend.png` | Closing price over time |
-| `02_moving_averages.png` | Close price with 20-day and 50-day moving averages |
-| `03_monthly_seasonality.png` | Average close price by month |
-| `04_future_trend_prediction.png` | Simple 30-day forecast |
+|-------|-------------|
+| `01_closing_price_trend.png` | Historical closing price with highest/lowest extremes |
+| `02_moving_averages.png` | 20-day and 50-day MA trends with bullish/bearish signals |
+| `03_monthly_seasonality.png` | Average close price by month showing seasonal patterns |
+| `04_future_trend_prediction.png` | 30-day linear forecast with prediction range |
 
 ## How to Run
 
@@ -65,9 +63,9 @@ python time_series_analysis.py
 
 ```text
 synent-task7-timeseries-palak/
+|-- README.md
 |-- time_series_analysis.py
 |-- CIPLA.csv
-|-- README.md
 |-- requirements.txt
 |-- data/
 |   `-- charts/
@@ -80,12 +78,26 @@ synent-task7-timeseries-palak/
 | --- | --- |
 | Trend analysis | Completed |
 | Seasonality detection | Completed |
-| Optional forecasting | Completed |
-| Time-based visual insights | Completed |
+| Future value forecast (optional) | Completed |
+| Meaningful visualizations | Completed |
+| Time-based insights report | Completed |
 | Dataset included | Completed |
 
 ## Author
 
-Palak
+Palakurthy Shiva Sai Goud
 
 Submitted for Synent Technologies Data Science Internship - Task 7.
+
+---
+
+## How to Run
+
+```bash
+pip install pandas numpy matplotlib seaborn
+python time_series_analysis.py
+```
+
+---
+
+*Submitted as part of the Synent Technologies Data Science Internship Program - Task 7*
