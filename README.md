@@ -10,16 +10,18 @@ Financial analysts need to understand stock price movements over time to identif
 
 ## Dataset
 
-Local file:
+The CIPLA stock historical data can be downloaded from:
+- **Kaggle**: [Indian Stock Market Data with Technical Analysis](https://www.kaggle.com/datasets/rohanrao/nse-stock-market-data)
 
-```text
-data/CIPLA.csv (or download from your data source)
-```
+Local copy:
+- `CIPLA.csv` - Contains historical CIPLA stock prices from NSE (National Stock Exchange)
 
 Important columns:
-
 - `Date`: Trading date
 - `Close`: Closing price
+- `High`: Daily high
+- `Low`: Daily low
+- `Open`: Opening price
 
 ## Approach
 
